@@ -30,7 +30,11 @@ export default function App() {
       <View>
         {
           goalList &&
-          goalList.map((goal, i) => <Text key={i}>{goal}</Text>)
+          goalList.map((goal, i) => (
+            <View key={i} style={styles.listItem}>
+              <Text>{goal}</Text>
+            </View>
+          ))
         }
       </View>
     </View>
@@ -52,5 +56,12 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     width: '80%',
+  },
+  listItem: {
+    padding: 10,
+    backgroundColor: '#ccc',
+    borderColor: 'black',
+    borderWidth: 1,
+    marginVertical: 10,
   },
 });
