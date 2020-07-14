@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, FlatList} from 'react-native';
+import {StyleSheet, View, FlatList, Button} from 'react-native';
 import GoalInput from "./GoalInput/GoalInput";
 import GoalItem from "./GoalItem/GoalItem";
 
 export default function App() {
   const [goalList, setGoalList] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const addGoalHandler = goal => {
     setGoalList(currentGoals => [
@@ -19,9 +20,15 @@ export default function App() {
     });
   }
 
+  const showAddModal = () => {
+    setShowModal(!showModal)
+  }
+
   return (
     <View style={styles.container}>
+      <Button onPress={showAddModal} title="Add New Goal" />
       <GoalInput
+        showModal={showModal}
         addGoalHandler={addGoalHandler}
       />
       {
