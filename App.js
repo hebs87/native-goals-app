@@ -13,6 +13,12 @@ export default function App() {
     ]);
   }
 
+  const deleteGoal = goalId => {
+    setGoalList(currentGoals => {
+      return currentGoals.filter(goal => goal.id !== goalId);
+    });
+  }
+
   return (
     <View style={styles.container}>
       <GoalInput
@@ -24,7 +30,11 @@ export default function App() {
           keyExtractor={(item, idx) => item.id}
           data={goalList}
           renderItem={data => (
-            <GoalItem goal={data.item.goal} />
+            <GoalItem
+              id={data.item.id}
+              goal={data.item.goal}
+              deleteGoal={deleteGoal}
+            />
           )}
         />
       }
