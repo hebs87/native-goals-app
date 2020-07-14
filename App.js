@@ -4,14 +4,9 @@ import GoalInput from "./GoalInput/GoalInput";
 import GoalItem from "./GoalItem/GoalItem";
 
 export default function App() {
-  const [goal, setGoal] = useState('');
   const [goalList, setGoalList] = useState([]);
 
-  const goalInputHandler = text => {
-    setGoal(text);
-  }
-
-  const addGoalHandler = () => {
+  const addGoalHandler = goal => {
     setGoalList(currentGoals => [
       ...currentGoals,
       {id: Math.random().toString(), goal}
@@ -21,8 +16,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       <GoalInput
-        value={goal}
-        goalInputHandler={goalInputHandler}
         addGoalHandler={addGoalHandler}
       />
       {
