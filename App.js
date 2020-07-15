@@ -25,11 +25,16 @@ export default function App() {
     setShowModal(true);
   }
 
+  const closeAddModal = () => {
+    setShowModal(false);
+  }
+
   return (
     <View style={styles.container}>
       <Button onPress={showAddModal} title="Add New Goal" />
       <GoalInput
         showModal={showModal}
+        closeAddModal={closeAddModal}
         addGoalHandler={addGoalHandler}
       />
       {
