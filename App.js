@@ -12,6 +12,7 @@ export default function App() {
       ...currentGoals,
       {id: Math.random().toString(), goal}
     ]);
+    setShowModal(false);
   }
 
   const deleteGoal = goalId => {
@@ -21,7 +22,7 @@ export default function App() {
   }
 
   const showAddModal = () => {
-    setShowModal(!showModal)
+    setShowModal(true);
   }
 
   return (
