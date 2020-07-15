@@ -8,11 +8,13 @@ export default function App() {
   const [showModal, setShowModal] = useState(false);
 
   const addGoalHandler = goal => {
-    setGoalList(currentGoals => [
-      ...currentGoals,
-      {id: Math.random().toString(), goal}
-    ]);
-    setShowModal(false);
+    if (goal.length) {
+      setGoalList(currentGoals => [
+        ...currentGoals,
+        {id: Math.random().toString(), goal}
+      ]);
+      setShowModal(false);
+    }
   }
 
   const deleteGoal = goalId => {
